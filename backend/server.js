@@ -13,6 +13,10 @@ app.get('/api/test', (req, res) => {
     res.json({ message: 'Hello from the backend server!' });
 });
 app.use('/api/users', userRoutes);
+const { notFound, errorHandler } = require('./middleware/authMiddleware');
+app.use(notFound);
+app.use(errorHandler);
+
 app.listen(PORT, () => {
     console.log(`Backend server is running on http://localhost:${PORT}`);
 });

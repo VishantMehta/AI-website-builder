@@ -91,7 +91,7 @@ const Login = () => {
           <div className="flex justify-between w-full py-4 items-center">
             <div className="flex items-center">
               <input type="checkbox" name="ch" id="ch" className="mr-2 h-4 w-4 bg-gray-700 border-gray-600 text-indigo-500 focus:ring-indigo-500" />
-              <span className="text-md text-gray-300">Remember me</span>
+              <span className="text-md text-gray-300">Remember for 30 days</span>
             </div>
             <span className="font-bold text-md cursor-pointer text-indigo-400 hover:underline">Forgot password</span>
           </div>

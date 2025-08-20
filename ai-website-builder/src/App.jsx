@@ -1,10 +1,13 @@
 import React from 'react';
 import Login from './components/Login';
+import MainPage from './components/MainPage';
 
 function App() {
+  const isLoggedIn = localStorage.getItem('userToken');
+
   return (
     <div className="App">
-      <Login />
+      {isLoggedIn ? <MainPage /> : <MainPage />}
     </div>
   );
 }

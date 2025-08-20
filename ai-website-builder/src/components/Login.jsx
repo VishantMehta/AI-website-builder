@@ -1,43 +1,26 @@
 import React, { useState } from 'react';
-// To make API calls, you'll need a library like Axios.
-// Install it by running: npm install axios
 import axios from 'axios';
 
 const Login = () => {
-  // --- STATE MANAGEMENT ---
-  // We use the 'useState' hook to keep track of what the user types
-  // in the email and password fields.
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(''); // To store any login error messages
+  const [error, setError] = useState('');
 
-  // --- API CALL FUNCTION ---
-  // This function is called when the user clicks the "Sign in" button.
   const handleLogin = async (e) => {
-    e.preventDefault(); // Prevents the form from reloading the page
-    setError(''); // Clear previous errors
+    e.preventDefault();
+    setError('');
 
     try {
-      // This is where you make the POST request to your backend's login endpoint.
       const response = await axios.post('http://localhost:5001/api/users/login', {
         email: email,
         password: password,
       });
 
-      // --- HANDLE SUCCESSFUL LOGIN ---
-      // As per your friend's instructions, the backend sends back a token on success.
-      // We save this token in localStorage so we can use it for future authenticated requests.
       localStorage.setItem('userToken', response.data.token);
 
-      // TODO: After successful login, you'll want to redirect the user
-      // to their dashboard or another protected page.
-      // For example: window.location.href = '/dashboard';
-      console.log('Login successful!', response.data);
-      alert('Login Successful!'); // Replace with a proper notification/redirect
+      window.location.reload();
 
     } catch (err) {
-      // --- HANDLE FAILED LOGIN ---
-      // If the backend returns an error (e.g., wrong password), we'll catch it here.
       console.error('Login failed:', err.response ? err.response.data : err.message);
       setError(err.response?.data?.message || 'An error occurred. Please try again.');
     }
@@ -47,7 +30,7 @@ const Login = () => {
     <div className="relative min-h-screen flex items-center justify-center bg-gray-900 font-montserrat overflow-hidden">
       {/* Animated SVG Background */}
       <div className="absolute inset-0 z-0">
-        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <svg className="w-full h-full" xmlns="http://www.w.org/2000/svg">
           <defs>
             <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
               <stop offset="0%" style={{stopColor: 'rgba(79, 70, 229, 0.4)', stopOpacity: 1}} />

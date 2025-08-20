@@ -2,7 +2,7 @@
 
 A full-stack MERN application that allows users to build and design websites using the power of generative AI. This tool provides AI-assisted content generation, design suggestions, and a simple, intuitive interface to create modern websites from scratch.
 
-*(Suggestion: Take a screenshot of your running application and add it here to showcase your UI!)*
+![App Screenshot](./src/assets/main.png)
 
 ---
 

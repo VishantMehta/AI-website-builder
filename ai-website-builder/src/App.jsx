@@ -10,8 +10,12 @@ function App() {
   // This is the main router for the app before a user is logged in.
   const AuthNavigator = () => {
     if (showRegister) {
+      // If showRegister is true, display the Register component
+      // We pass setShowRegister so it can navigate back to the login page
       return <Register setShowRegister={setShowRegister} />;
     }
+    // Otherwise, show the Login component
+    // We pass setShowRegister so it can navigate to the register page
     return <Login setShowRegister={setShowRegister} />;
   };
 

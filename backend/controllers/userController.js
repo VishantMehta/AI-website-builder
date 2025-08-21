@@ -7,12 +7,10 @@ const generateToken = require('../utils/generateToken');
 const registerUser = asyncHandler(async (req, res) => {
     const { name, email, password } = req.body;
     const userExists = await User.findOne({ email });
-
     if (userExists) {
         res.status(400);
         throw new Error('User already exists');
     }
-
     const user = await User.create({
         name,
         email,
@@ -54,9 +52,7 @@ const loginUser = asyncHandler(async (req, res) => {
 // @route   GET /api/users/profile
 // @access  Private
 const getUserProfile = asyncHandler(async (req, res) => {
-    // req.user is available here because our 'protect' middleware created it
     const user = await User.findById(req.user._id);
-
     if (user) {
         res.json({
             _id: user._id,

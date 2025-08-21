@@ -3,7 +3,7 @@ const componentSchema = mongoose.Schema({
     type: {
         type: String,
         required: true,
-        enum: ['hero', 'about', 'services', 'gallery', 'contact', 'footer'], // Example component types
+        enum: ['hero', 'about', 'services', 'gallery', 'contact', 'footer'],
     },
     content: {
         type: mongoose.Schema.Types.Mixed,
@@ -15,7 +15,7 @@ const websiteSchema = mongoose.Schema(
         user: {
             type: mongoose.Schema.Types.ObjectId,
             required: true,
-            ref: 'User', // This tells Mongoose the ObjectId refers to a document in the 'User' collection
+            ref: 'User',
         },
         name: {
             type: String,
